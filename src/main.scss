@@ -34,7 +34,7 @@ a {
     align-items: center;
     text-align: center;
     transform: translateY(-50px);
-    color: #999;
+    color: #777;
 
     .error-header {
         font-size: 22px;
@@ -82,6 +82,8 @@ a {
     padding: 10px;
     font-size: 16px;
     font-family: 'Roboto',sans-serif;
+    border-radius: 3px;
+    border: 1px solid #999;
 }
 
 .table-wrapper {
@@ -101,6 +103,7 @@ a {
                 font-weight: bold;
                 cursor: pointer;
                 transition: all 0.15s;
+                border: 1px solid #aaa;
 
                 &:hover {
                     background-color: #C2D4FF;
@@ -114,7 +117,7 @@ a {
 
         td {
             padding: 10px;
-            border: 1px solid black;
+            border: 1px solid #ccc;
         }
 
         span.hl {

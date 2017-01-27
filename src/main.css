@@ -27,7 +27,7 @@ a {
   align-items: center;
   text-align: center;
   transform: translateY(-50px);
-  color: #999; }
+  color: #777; }
   .error .error-header {
     font-size: 22px;
     margin-bottom: 5px; }
@@ -64,7 +64,9 @@ a {
   display: block;
   padding: 10px;
   font-size: 16px;
-  font-family: 'Roboto',sans-serif; }
+  font-family: 'Roboto',sans-serif;
+  border-radius: 3px;
+  border: 1px solid #999; }
 
 .table-wrapper {
   overflow-x: auto;
@@ -78,14 +80,15 @@ a {
     .table-wrapper table thead td {
       font-weight: bold;
       cursor: pointer;
-      transition: all 0.15s; }
+      transition: all 0.15s;
+      border: 1px solid #aaa; }
       .table-wrapper table thead td:hover {
         background-color: #C2D4FF; }
     .table-wrapper table tr:nth-child(even) {
       background-color: #efefef; }
     .table-wrapper table td {
       padding: 10px;
-      border: 1px solid black; }
+      border: 1px solid #ccc; }
     .table-wrapper table span.hl {
       background-color: yellow; }
 
