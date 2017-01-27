@@ -80,7 +80,7 @@ a {
     .table-wrapper table thead td {
       font-weight: bold;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: background-color 0.15s;
       border: 1px solid #aaa; }
       .table-wrapper table thead td:hover {
         background-color: #C2D4FF; }
