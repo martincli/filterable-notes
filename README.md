@@ -10,9 +10,9 @@ This app improves upon that experience by allowing the user to filter/search the
 
 ## Live Demo / How to Use
 
-A live demo of the app can be found here: 
-https://martincli.github.io/filterable-notes/?id=1f3CA0rFt5sriJyloTuUQiqaBIscXTeWKFfY_09hE7YU
-This demo uses the following example spreadsheet: 
+A live demo of the app can be found here:  
+https://martincli.github.io/filterable-notes/?id=1f3CA0rFt5sriJyloTuUQiqaBIscXTeWKFfY_09hE7YU  
+This demo uses the following example spreadsheet:  
 https://docs.google.com/spreadsheets/d/1f3CA0rFt5sriJyloTuUQiqaBIscXTeWKFfY_09hE7YU/
 
 ### Using your own spreadsheet
