@@ -13,13 +13,13 @@ class SearchBar extends Component {
     render() {
         return (
             <div>
-                <input 
-                    type="text"
-                    className="search"
-                    autoFocus
-                    placeholder="Search..."
-                    onChange={this.handleInputChange}
-                />
+              <input 
+                type="text"
+                className="search"
+                autoFocus
+                placeholder="Search..."
+                onChange={this.handleInputChange}
+              />
             </div>
         );
     }

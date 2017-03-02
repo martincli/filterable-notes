@@ -50,41 +50,40 @@ class Table extends Component {
 
         return (
             <div className="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            {this.props.headers.map((header,index) => {
-                                return (
-                                    <td key={index} onClick={this.handleHeaderClick}>{header.toUpperCase()}</td>
-                                )
-                            })}
+              <table>
+                <thead>
+                  <tr>
+                    {this.props.headers.map((header,index) => {
+                      return (
+                        <td key={index} onClick={this.handleHeaderClick}>{header.toUpperCase()}</td>
+                      );
+                    })}
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    entries.map((entry,index) => {
+                      const cells = [];
+                      for (const header of this.props.headers) {
+                        cells.push(entry['gsx$'+header]['$t']);
+                      }
+                      return (
+                        <tr key={index}>
+                          {cells.map((value,index) => {
+                            return (
+                              <Cell
+                                key={index}
+                                value={value}
+                                searchInput={this.props.searchInput}
+                              />
+                            );
+                          })}
                         </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            entries.map((entry,index) => {
-                                const cells = [];
-                                for (const header of this.props.headers) {
-                                    cells.push(entry['gsx$'+header]['$t']);
-                                }
-
-                                return (
-                                    <tr key={index}>
-                                        {cells.map((value,index) => {
-                                            return (
-                                                <Cell
-                                                    key={index}
-                                                    value={value}
-                                                    searchInput={this.props.searchInput}
-                                                />
-                                            );
-                                        })}
-                                    </tr>
-                                );
-                            })
-                        }
-                    </tbody>
-                </table>
+                      );
+                    })
+                  }
+                </tbody>
+              </table>
             </div>
         );
     }

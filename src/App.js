@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './components/SearchBar';
-import Table     from './components/Table';
+import Table from './components/Table';
 
 class App extends Component {
     constructor() {
@@ -73,36 +73,36 @@ class App extends Component {
         if(this.state.loading) {
             return (
                 <div className="loading">
-                    <div className="spinner">
-                        <div></div>
-                    </div>
+                  <div className="spinner">
+                    <div></div>
+                  </div>
                 </div>
             );
         }
         else if(this.state.error) {
             return (
                 <div className="error">
-                    <div>
-                        <div className="error-header">Error: Invalid data</div>
-                        <div className="error-text">Please ensure that the spreadsheet ID is correct and that the spreadsheet is published.</div>
-                    </div>
+                  <div>
+                    <div className="error-header">Error: Invalid data</div>
+                    <div className="error-text">Please ensure that the spreadsheet ID is correct and that the spreadsheet is published.</div>
+                  </div>
                 </div>
             );
         }
         else {
             return (
                 <div>
-                    <SearchBar 
-                        onInputChange={this.onInputChange}
-                    />
-                    <Table 
-                        headers={this.state.headers}
-                        entries={this.state.entries}
-                        sortHeader={this.state.sortHeader}
-                        sortReverse={this.state.sortReverse}
-                        searchInput={this.state.searchInput}
-                        onHeaderClick={this.onHeaderClick}
-                    />
+                  <SearchBar 
+                    onInputChange={this.onInputChange}
+                  />
+                  <Table 
+                    headers={this.state.headers}
+                    entries={this.state.entries}
+                    sortHeader={this.state.sortHeader}
+                    sortReverse={this.state.sortReverse}
+                    searchInput={this.state.searchInput}
+                    onHeaderClick={this.onHeaderClick}
+                  />
                 </div>
             );
         }
