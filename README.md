@@ -1,6 +1,6 @@
 # Filterable Notes
 
-Simple app for viewing Google Sheets data.
+Simple app for viewing Google Sheets data
 
 ## Background
 
