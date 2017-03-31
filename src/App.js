@@ -40,7 +40,6 @@ class App extends Component {
                 this.setState({ 
                     headers,
                     entries: data.feed.entry,
-                    sortHeader: headers[0],
                     loading: false
                 });
             })
