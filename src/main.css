@@ -88,7 +88,9 @@ a {
       background-color: #efefef; }
     .table-wrapper table td {
       padding: 10px;
-      border: 1px solid #ccc; }
+      border: 1px solid #ccc;
+      max-width: 400px;
+      overflow: hidden; }
     .table-wrapper table span.hl {
       background-color: yellow; }
 
