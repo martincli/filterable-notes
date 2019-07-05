@@ -4,9 +4,10 @@
   "private": true,
   "homepage": "https://martincli.github.io/filterable-notes",
   "devDependencies": {
-    "react-scripts": "0.8.4"
+    "react-scripts": "^0.8.4"
   },
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-linkify": "^0.1.3"
