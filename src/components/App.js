@@ -15,8 +15,8 @@ class App extends Component {
             error: false
         };
 
-        this.onInputChange = this.onInputChange.bind(this);
-        this.onHeaderClick = this.onHeaderClick.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleHeaderClick = this.handleHeaderClick.bind(this);
     }
 
     componentDidMount() {
@@ -52,11 +52,11 @@ class App extends Component {
         );
     }
 
-    onInputChange(value) {
+    handleInputChange(value) {
         this.setState({ searchTerm: value });
     }
 
-    onHeaderClick(clickedHeader) {
+    handleHeaderClick(clickedHeader) {
         if(this.state.sortHeader === clickedHeader) {
             this.setState({ sortReverse: !this.state.sortReverse });
         }
@@ -93,7 +93,7 @@ class App extends Component {
                 <div>
                   <SearchBar 
                     searchTerm={this.state.searchTerm}
-                    onInputChange={this.onInputChange}
+                    onInputChange={this.handleInputChange}
                   />
                   <Table 
                     headers={this.state.headers}
@@ -101,7 +101,7 @@ class App extends Component {
                     sortHeader={this.state.sortHeader}
                     sortReverse={this.state.sortReverse}
                     searchTerm={this.state.searchTerm}
-                    onHeaderClick={this.onHeaderClick}
+                    onHeaderClick={this.handleHeaderClick}
                   />
                 </div>
             );
