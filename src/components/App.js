@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SearchBar from './components/SearchBar';
-import Table from './components/Table';
+import SearchBar from './SearchBar';
+import Table from './Table';
 
 class App extends Component {
     constructor() {
@@ -10,7 +10,7 @@ class App extends Component {
             entries: [],
             sortHeader: '',
             sortReverse: false,
-            searchInput: '',
+            searchTerm: '',
             loading: true,
             error: false
         };
@@ -31,8 +31,8 @@ class App extends Component {
             })
             .then(data => { 
                 const headers = [];
-                for(const prop in data.feed.entry[0]) {
-                    if(prop.includes('gsx$')) {
+                for (const prop in data.feed.entry[0]) {
+                    if (prop.includes('gsx$')) {
                         headers.push(prop.slice(4));
                     }
                 }
@@ -53,12 +53,12 @@ class App extends Component {
     }
 
     onInputChange(value) {
-        this.setState({searchInput: value});
+        this.setState({ searchTerm: value });
     }
 
     onHeaderClick(clickedHeader) {
         if(this.state.sortHeader === clickedHeader) {
-            this.setState({sortReverse: !this.state.sortReverse});
+            this.setState({ sortReverse: !this.state.sortReverse });
         }
         else {
             this.setState({
@@ -69,7 +69,7 @@ class App extends Component {
     }
 
     render() {
-        if(this.state.loading) {
+        if (this.state.loading) {
             return (
                 <div className="loading">
                   <div className="spinner">
@@ -78,7 +78,7 @@ class App extends Component {
                 </div>
             );
         }
-        else if(this.state.error) {
+        else if (this.state.error) {
             return (
                 <div className="error">
                   <div>
@@ -92,6 +92,7 @@ class App extends Component {
             return (
                 <div>
                   <SearchBar 
+                    searchTerm={this.state.searchTerm}
                     onInputChange={this.onInputChange}
                   />
                   <Table 
@@ -99,7 +100,7 @@ class App extends Component {
                     entries={this.state.entries}
                     sortHeader={this.state.sortHeader}
                     sortReverse={this.state.sortReverse}
-                    searchInput={this.state.searchInput}
+                    searchTerm={this.state.searchTerm}
                     onHeaderClick={this.onHeaderClick}
                   />
                 </div>

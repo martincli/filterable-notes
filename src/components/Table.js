@@ -12,26 +12,21 @@ class Table extends Component {
     }
 
     render() {
-        let entries = [];
+        let entries = this.props.entries;
 
         // sort
-        if(this.props.sortHeader) {
+        if (this.props.sortHeader) {
             entries = this.props.entries.sort((a,b) => {
                 // use number value if possible, alphabetical otherwise (does not work properly when mixed)
-                const headerA = parseFloat(a['gsx$'+this.props.sortHeader]['$t']) || a['gsx$'+this.props.sortHeader]['$t'].toLowerCase();
-                const headerB = parseFloat(b['gsx$'+this.props.sortHeader]['$t']) || b['gsx$'+this.props.sortHeader]['$t'].toLowerCase();
+                a = parseFloat(a['gsx$'+this.props.sortHeader]['$t']) || a['gsx$'+this.props.sortHeader]['$t'].toLowerCase();
+                b = parseFloat(b['gsx$'+this.props.sortHeader]['$t']) || b['gsx$'+this.props.sortHeader]['$t'].toLowerCase();
 
-                if(headerA < headerB) {
+                if (a <= b) {
                     return this.props.sortReverse ? 1 : -1;
-                }
-                if(headerA > headerB) {
+                } else {
                     return this.props.sortReverse ? -1 : 1;
                 }
-                return 0;
             });
-        }
-        else {
-            entries = this.props.entries;
         }
 
         // filter
@@ -41,7 +36,7 @@ class Table extends Component {
                 cells.push(entry['gsx$'+header]['$t']);
             }
             for (const cell of cells) {
-                if(cell.toLowerCase().includes(this.props.searchInput.toLowerCase())) {
+                if (cell.toLowerCase().includes(this.props.searchTerm.toLowerCase())) {
                     return true;
                 }
             }
@@ -53,35 +48,21 @@ class Table extends Component {
               <table>
                 <thead>
                   <tr>
-                    {this.props.headers.map((header,index) => {
-                      return (
-                        <td key={index} onClick={this.handleHeaderClick}>{header.toUpperCase()}</td>
-                      );
-                    })}
+                    {this.props.headers.map((header,index) => <td key={index} onClick={this.handleHeaderClick}>{header.toUpperCase()}</td>)}
                   </tr>
                 </thead>
                 <tbody>
-                  {
-                    entries.map((entry,index) => {
-                      const cells = [];
-                      for (const header of this.props.headers) {
-                        cells.push(entry['gsx$'+header]['$t']);
-                      }
-                      return (
-                        <tr key={index}>
-                          {cells.map((value,index) => {
-                            return (
-                              <Cell
-                                key={index}
-                                value={value}
-                                searchInput={this.props.searchInput}
-                              />
-                            );
-                          })}
-                        </tr>
-                      );
-                    })
-                  }
+                  {entries.map((entry,index) => {
+                    const cells = [];
+                    for (const header of this.props.headers) {
+                      cells.push(entry['gsx$'+header]['$t']);
+                    }
+                    return (
+                      <tr key={index}>
+                        {cells.map((value,index) => <Cell key={index} value={value} searchInput={this.props.searchTerm}/>)}
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
